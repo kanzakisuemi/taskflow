@@ -1,0 +1,12 @@
+layout:
+  titulo: Layout
+  projeto: site
+  usuario: bruno
+  status: concluida
+  prioridade: alta
+
+textos:
+  titulo: Textos
+  projeto: site
+  status: pendente
+  prioridade: baixa
