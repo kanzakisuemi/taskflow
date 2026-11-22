@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root "projetos#index"
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :usuarios
+  resources :projetos do
+    resources :tarefas, except: :index, shallow: true do
+      member { patch :atualizar_status }
+    end
+  end
+  resources :tarefas, only: :index # UC05: listagem global com filtros
 end
