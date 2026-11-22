@@ -1,0 +1,16 @@
+<div class="titulo">
+  <h1>Usuários</h1>
+  <%= link_to "Novo usuário", new_usuario_path, class: "botao" %>
+</div>
+
+<table>
+  <thead><tr><th>Nome</th><th>E-mail</th></tr></thead>
+  <tbody>
+    <% @usuarios.each do |usuario| %>
+      <tr>
+        <td><%= link_to usuario.nome, usuario %></td>
+        <td><%= usuario.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

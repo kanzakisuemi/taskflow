@@ -1,0 +1,12 @@
+<h1>Tarefas</h1>
+
+<%= form_with url: tarefas_path, method: :get, class: "filtros" do |form| %>
+  <%= form.select :status, opcoes_enum(Tarefa, :status), { include_blank: "Todos os status", selected: params[:status] } %>
+  <%= form.select :prioridade, opcoes_enum(Tarefa, :prioridade), { include_blank: "Todas as prioridades", selected: params[:prioridade] } %>
+  <%= form.collection_select :projeto_id, @projetos, :id, :nome, { include_blank: "Todos os projetos", selected: params[:projeto_id] } %>
+  <%= form.collection_select :usuario_id, @usuarios, :id, :nome, { include_blank: "Todos os responsáveis", selected: params[:usuario_id] } %>
+  <%= form.submit "Filtrar", name: nil, class: "botao" %>
+  <%= link_to "Limpar", tarefas_path %>
+<% end %>
+
+<%= render "tabela", tarefas: @tarefas, mostrar_projeto: true %>

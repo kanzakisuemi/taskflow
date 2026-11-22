@@ -1,0 +1,21 @@
+<div class="titulo">
+  <h1><%= @projeto.nome %> <%= badge @projeto, :status %></h1>
+  <%= link_to "Nova tarefa", new_projeto_tarefa_path(@projeto), class: "botao" %>
+</div>
+
+<p><%= @projeto.descricao %></p>
+<p>
+  <strong>Responsável:</strong> <%= link_to @projeto.usuario, @projeto.usuario %> ·
+  <strong>Início:</strong> <%= data @projeto.data_inicio %> ·
+  <strong>Término previsto:</strong> <%= data @projeto.data_fim_prevista %>
+</p>
+<%= render "progresso", projeto: @projeto %>
+
+<h2>Tarefas</h2>
+<%= render "tarefas/tabela", tarefas: @tarefas, mostrar_projeto: false %>
+
+<div class="acoes">
+  <%= link_to "Editar", edit_projeto_path(@projeto), class: "botao" %>
+  <%= button_to "Excluir", @projeto, method: :delete, class: "botao perigo", form: { data: { turbo_confirm: "Excluir o projeto e todas as suas tarefas?" } } %>
+  <%= link_to "Voltar", projetos_path %>
+</div>

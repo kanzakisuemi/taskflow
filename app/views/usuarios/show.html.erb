@@ -1,0 +1,15 @@
+<h1><%= @usuario.nome %></h1>
+<p><strong>E-mail:</strong> <%= @usuario.email %></p>
+
+<h2>Projetos sob responsabilidade</h2>
+<ul>
+  <% @usuario.projetos.each do |projeto| %>
+    <li><%= link_to projeto.nome, projeto %></li>
+  <% end %>
+</ul>
+
+<div class="acoes">
+  <%= link_to "Editar", edit_usuario_path(@usuario), class: "botao" %>
+  <%= button_to "Excluir", @usuario, method: :delete, class: "botao perigo", form: { data: { turbo_confirm: "Excluir este usuário?" } } %>
+  <%= link_to "Voltar", usuarios_path %>
+</div>

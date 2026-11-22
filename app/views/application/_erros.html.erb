@@ -1,0 +1,10 @@
+<% if registro.errors.any? %>
+  <div class="erros">
+    <p>Corrija os erros abaixo:</p>
+    <ul>
+      <% registro.errors.full_messages.each do |mensagem| %>
+        <li><%= mensagem %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

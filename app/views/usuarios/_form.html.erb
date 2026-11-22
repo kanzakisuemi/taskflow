@@ -1,0 +1,17 @@
+<%= form_with(model: usuario) do |form| %>
+  <%= render "erros", registro: usuario %>
+
+  <div class="campo">
+    <%= form.label :nome %>
+    <%= form.text_field :nome %>
+    <%= erro_campo usuario, :nome %>
+  </div>
+
+  <div class="campo">
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+    <%= erro_campo usuario, :email %>
+  </div>
+
+  <%= form.submit "Salvar", class: "botao" %>
+<% end %>

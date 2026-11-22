@@ -1,15 +1,62 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
  *= require_self
  */
+:root {
+  --texto: #1f2933; --suave: #616e7c; --borda: #d9e2ec; --fundo: #f5f7fa;
+  --primaria: #2563eb; --perigo: #dc2626; --sucesso: #16a34a; --aviso: #d97706;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; color: var(--texto); background: var(--fundo); line-height: 1.5; }
+header { background: #111827; }
+nav { max-width: 1000px; margin: 0 auto; padding: .75rem 1rem; display: flex; gap: 1.25rem; flex-wrap: wrap; }
+nav a { color: #e5e7eb; text-decoration: none; }
+nav .marca { font-weight: 700; color: #fff; margin-right: auto; }
+main { max-width: 1000px; margin: 0 auto; padding: 1rem; }
+a { color: var(--primaria); }
+
+.titulo { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.acoes { display: flex; gap: .75rem; align-items: center; margin-top: 1.5rem; flex-wrap: wrap; }
+.acoes form { margin: 0; }
+
+.botao { display: inline-block; padding: .45rem .9rem; border: 0; border-radius: 6px; background: var(--primaria); color: #fff; text-decoration: none; cursor: pointer; font: inherit; }
+.botao.perigo { background: var(--perigo); }
+.botao.pequeno { padding: .2rem .5rem; font-size: .85rem; }
+
+.flash { padding: .6rem 1rem; border-radius: 6px; }
+.notice { background: #dcfce7; color: #166534; }
+.alert { background: #fee2e2; color: #991b1b; }
+.erros { background: #fee2e2; color: #991b1b; padding: .5rem 1rem; border-radius: 6px; margin-bottom: 1rem; }
+.erro { color: var(--perigo); }
+.field_with_errors { display: contents; }
+.field_with_errors input, .field_with_errors select { border-color: var(--perigo); }
+
+form .campo { display: flex; flex-direction: column; margin-bottom: .9rem; max-width: 480px; }
+.linha { display: flex; gap: 1rem; flex-wrap: wrap; }
+input, select, textarea { padding: .4rem; border: 1px solid var(--borda); border-radius: 6px; font: inherit; background: #fff; }
+.filtros { display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; margin-bottom: 1rem; }
+.status { display: flex; gap: .3rem; margin: 0; }
+
+table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; }
+th, td { padding: .55rem .7rem; text-align: left; border-bottom: 1px solid var(--borda); vertical-align: middle; }
+th { background: #eef2f7; font-size: .85rem; color: var(--suave); }
+tr.atrasada { background: #fef2f2; }
+tr.atrasada td:first-child { border-left: 4px solid var(--perigo); }
+h1.atrasada { color: var(--perigo); }
+
+.badge { display: inline-block; padding: .1rem .5rem; border-radius: 999px; font-size: .8rem; background: #e5e7eb; white-space: nowrap; }
+.badge-pendente, .badge-baixa, .badge-arquivado { background: #e5e7eb; }
+.badge-em_andamento, .badge-media, .badge-ativo { background: #dbeafe; color: #1e40af; }
+.badge-concluida, .badge-concluido { background: #dcfce7; color: #166534; }
+.badge-alta { background: #ffedd5; color: #9a3412; }
+.badge-atrasada { background: var(--perigo); color: #fff; }
+
+.progresso { position: relative; height: 1.2rem; min-width: 120px; background: #e5e7eb; border-radius: 999px; overflow: hidden; }
+.progresso .barra { height: 100%; background: var(--sucesso); }
+.progresso span { position: absolute; inset: 0; text-align: center; font-size: .75rem; line-height: 1.2rem; }
+
+@media (max-width: 640px) {
+  table, thead, tbody, tr, th, td { display: block; }
+  thead { display: none; }
+  tr { border-bottom: 1px solid var(--borda); padding: .4rem 0; }
+  td { border: 0; padding: .2rem .7rem; }
+}

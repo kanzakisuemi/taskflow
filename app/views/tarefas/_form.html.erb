@@ -1,0 +1,33 @@
+<%= form_with(model: [(tarefa.projeto if tarefa.new_record?), tarefa]) do |form| %>
+  <%= render "erros", registro: tarefa %>
+
+  <div class="campo">
+    <%= form.label :titulo %>
+    <%= form.text_field :titulo %>
+    <%= erro_campo tarefa, :titulo %>
+  </div>
+
+  <div class="campo">
+    <%= form.label :descricao %>
+    <%= form.text_area :descricao, rows: 3 %>
+  </div>
+
+  <div class="linha">
+    <div class="campo">
+      <%= form.label :prioridade %>
+      <%= form.select :prioridade, opcoes_enum(Tarefa, :prioridade) %>
+    </div>
+
+    <div class="campo">
+      <%= form.label :prazo %>
+      <%= form.date_field :prazo %>
+    </div>
+  </div>
+
+  <div class="campo">
+    <%= form.label :usuario_id %>
+    <%= form.collection_select :usuario_id, @usuarios, :id, :nome, include_blank: "Sem responsável" %>
+  </div>
+
+  <%= form.submit "Salvar", class: "botao" %>
+<% end %>

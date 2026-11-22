@@ -1,0 +1,40 @@
+<%= form_with(model: projeto) do |form| %>
+  <%= render "erros", registro: projeto %>
+
+  <div class="campo">
+    <%= form.label :nome %>
+    <%= form.text_field :nome %>
+    <%= erro_campo projeto, :nome %>
+  </div>
+
+  <div class="campo">
+    <%= form.label :descricao %>
+    <%= form.text_area :descricao, rows: 3 %>
+  </div>
+
+  <div class="campo">
+    <%= form.label :usuario_id %>
+    <%= form.collection_select :usuario_id, @usuarios, :id, :nome, prompt: "Selecione" %>
+    <%= erro_campo projeto, :usuario %>
+  </div>
+
+  <div class="campo">
+    <%= form.label :status %>
+    <%= form.select :status, opcoes_enum(Projeto, :status) %>
+  </div>
+
+  <div class="linha">
+    <div class="campo">
+      <%= form.label :data_inicio %>
+      <%= form.date_field :data_inicio %>
+    </div>
+
+    <div class="campo">
+      <%= form.label :data_fim_prevista %>
+      <%= form.date_field :data_fim_prevista %>
+      <%= erro_campo projeto, :data_fim_prevista %>
+    </div>
+  </div>
+
+  <%= form.submit "Salvar", class: "botao" %>
+<% end %>

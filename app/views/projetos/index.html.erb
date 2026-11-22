@@ -1,0 +1,19 @@
+<div class="titulo">
+  <h1>Projetos</h1>
+  <%= link_to "Novo projeto", new_projeto_path, class: "botao" %>
+</div>
+
+<table>
+  <thead><tr><th>Nome</th><th>Responsável</th><th>Status</th><th>Término previsto</th><th>Conclusão</th></tr></thead>
+  <tbody>
+    <% @projetos.each do |projeto| %>
+      <tr>
+        <td><%= link_to projeto.nome, projeto %></td>
+        <td><%= projeto.usuario %></td>
+        <td><%= badge projeto, :status %></td>
+        <td><%= data projeto.data_fim_prevista %></td>
+        <td><%= render "progresso", projeto: projeto %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

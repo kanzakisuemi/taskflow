@@ -1,0 +1,33 @@
+pt-BR:
+  activerecord:
+    models:
+      usuario: { one: Usuário, other: Usuários }
+      projeto: { one: Projeto, other: Projetos }
+      tarefa: { one: Tarefa, other: Tarefas }
+    attributes:
+      usuario:
+        nome: Nome
+        email: E-mail
+      projeto:
+        nome: Nome
+        descricao: Descrição
+        status: Status
+        data_inicio: Data de início
+        data_fim_prevista: Data de término prevista
+        usuario: Responsável
+        usuario_id: Responsável
+      tarefa:
+        titulo: Título
+        descricao: Descrição
+        status: Status
+        prioridade: Prioridade
+        prazo: Prazo
+        projeto: Projeto
+        usuario: Responsável
+        usuario_id: Responsável
+  enums:
+    projeto:
+      status: { ativo: Ativo, concluido: Concluído, arquivado: Arquivado }
+    tarefa:
+      status: { pendente: Pendente, em_andamento: Em andamento, concluida: Concluída }
+      prioridade: { baixa: Baixa, media: Média, alta: Alta }

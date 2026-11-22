@@ -1,0 +1,4 @@
+<%= form_with url: atualizar_status_tarefa_path(tarefa), method: :patch, class: "status" do |form| %>
+  <%= form.select :status, opcoes_enum(Tarefa, :status), { selected: tarefa.status }, id: nil %>
+  <%= form.submit "Atualizar", class: "botao pequeno" %>
+<% end %>

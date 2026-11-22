@@ -1,0 +1,25 @@
+<% if tarefas.empty? %>
+  <p>Nenhuma tarefa encontrada.</p>
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>Título</th>
+        <% if mostrar_projeto %><th>Projeto</th><% end %>
+        <th>Responsável</th><th>Prioridade</th><th>Prazo</th><th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% tarefas.each do |tarefa| %>
+        <tr class="<%= "atrasada" if tarefa.atrasada? %>">
+          <td><%= link_to tarefa.titulo, tarefa %></td>
+          <% if mostrar_projeto %><td><%= link_to tarefa.projeto, tarefa.projeto %></td><% end %>
+          <td><%= tarefa.usuario || "–" %></td>
+          <td><%= badge tarefa, :prioridade %></td>
+          <td><%= data tarefa.prazo %><% if tarefa.atrasada? %> <span class="badge badge-atrasada">Atrasada</span><% end %></td>
+          <td><%= render "tarefas/status", tarefa: tarefa %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
