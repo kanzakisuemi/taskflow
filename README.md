@@ -6,7 +6,7 @@ Trabalho da disciplina Projeto de Desenvolvimento de Software I (UniFil).
 
 ## Autoria
 
-- [NOME COMPLETO]
+- Julia Suemi Kanzaki
 
 ## Stack
 
@@ -58,4 +58,4 @@ bin/rails test
 ## Documentação
 
 - [Diagramas (DER, classes, casos de uso, atividade e sequência)](docs/diagramas.md)
-- Documentação completa: `docs/TaskFlow_Documentacao.pdf`
+- [Documentação completa (PDF)](docs/TaskFlow_Documentacao.pdf)
